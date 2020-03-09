@@ -18,5 +18,11 @@ pipeline {
                 echo "This does packaging"
             }
         }
+        stage (clean) {
+            steps {
+                cleanWs()
+                echo "This does cleaning"
+            }
+        }
     }
 }
