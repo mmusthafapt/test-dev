@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage (build) {
             steps {
-                sh "mv compile"
+                sh "mvn compile"
                 echo "This does testing...!"
             }
         }
