@@ -1,27 +1,22 @@
 pipeline {
     agent any
     tools {
-        maven 'localmaven'
+      jdk "my_jdk8"  
+      maven "my_maven"
     }
     stages {
-        stage('buildStage') {
+        stage (build) {
             steps {
-                echo "Building a maven project........!"
-                sh 'mvn compile'
-            }
-        }
-        stage('testingCode') {
-            steps {
-                echo "Testing........!"
-                sh 'mvn test'
-            }
-        }
-        stage('Clean up the Environment') {
-            steps {
-                echo "Cleaning up........!"
-                cleanWs()
+                sh "mv compile"
+                echo "This does testing...!"
             }
         }
         
+        stage (package) {
+            steps {
+                sh "mvn package"
+                echo "This does packaging"
+            }
+        }
     }
 }
