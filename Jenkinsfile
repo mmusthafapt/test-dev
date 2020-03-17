@@ -1,28 +1,22 @@
 pipeline {
     agent any
-    tools {
-      jdk "my_jdk8"  
-      maven "my_maven"
-    }
     stages {
-        stage (build) {
-            steps {
-                sh "mvn compile"
-                echo "This does testing...!"
-            }
+    stage('build') {
+        steps{
+            echo "This is the build step"
         }
-        
-        stage (package) {
-            steps {
-                sh "mvn package"
-                echo "This does packaging"
-            }
+
+    }
+    stage('test') {
+        steps{
+            echo "This is testing"
         }
-        stage (clean) {
-            steps {
-                cleanWs()
-                echo "This does cleaning"
-            }
+    }
+    stage('package') {
+        steps{
+
+            echo "packaging in pipeline"
         }
+    }
     }
 }
