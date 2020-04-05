@@ -1,3 +1,0 @@
-this is a demo file for the morning Devops session
-this is to check git diff command
-added this line on 7th April
